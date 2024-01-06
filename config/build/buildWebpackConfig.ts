@@ -21,7 +21,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     // конфигурация лоудеров
     rules: buildLoaders(options),
   },
-  resolve: buildResolvers(),
+  resolve: buildResolvers(options),
   // убираем из прода, что бы лишние символы не забирали место
   devtool: isDev ? 'inline-source-map' : undefined,
   devServer: isDev ? buildDevServer(options) : undefined
