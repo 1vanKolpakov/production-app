@@ -15,6 +15,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 export const routeConfig :Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
+    // className: 'asdasd',
     element: <MainPageLazy />
   },
   [AppRoutes.ABOUT]: {

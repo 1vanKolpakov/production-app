@@ -14,7 +14,7 @@ export function Navbar({className}: NavbarProps) {
   
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
-      <ThemeSwitcher />
+      
       <div className={styles.links}>
         <AppLink className={styles.mainLink} to={'/'}>Главная</AppLink>
         <AppLink to={'/about'}> О сайте</AppLink>
