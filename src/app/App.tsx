@@ -5,6 +5,7 @@ import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme'
 import { classNames } from 'shared/lib/classNames/classnames'
 import  AppRouter from 'app/providers/router/ui/AppRouter'
 import { Navbar } from 'widgets/Navbar'
+import UserImg from "shared/assets/icons/user-32-32.png"
 
 
 export default function App() {
@@ -13,10 +14,9 @@ export default function App() {
   
   return (
     <div className={classNames('app', {}, [theme])}>
-      
       <Navbar />
-      <button onClick={toggleTheme}>Выбрать тему</button>
       <AppRouter />
+      {/* <UserImg /> */}
     </div>
   )
 }
