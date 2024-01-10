@@ -5,6 +5,7 @@ import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import styles from './Sidebar.module.scss'
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from "widgets/LangSwitcher";
+import BugButton from "app/providers/ErrorBoundary/ui/BugButton";
 
 interface SidebarProps {
 className?: string;
@@ -20,9 +21,11 @@ export const Sidebar = ({className}:SidebarProps) => {
 	return (
 		<div className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
 			<button onClick={onToggle}>{collapsed ? `${t('Открыть')}` : `${t('Скрыть')}`}</button>
+			<BugButton />
 			<div className={styles.themeSwitcher}>
 				<ThemeSwitcher />
 				<LangSwitcher />
+				
 			</div>
 			
 		</div>
