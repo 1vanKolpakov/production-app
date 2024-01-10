@@ -19,8 +19,9 @@ export const Sidebar = ({className}:SidebarProps) => {
 		setCollapsed(prev => !prev)
 	}
 	return (
-		<div className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
-			<button onClick={onToggle}>{collapsed ? `${t('Открыть')}` : `${t('Скрыть')}`}</button>
+		<div data-testid='sidebar'
+		className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
+			<button data-testid='sidebar-btn' onClick={onToggle}>{collapsed ? `${t('Открыть')}` : `${t('Скрыть')}`}</button>
 			<BugButton />
 			<div className={styles.themeSwitcher}>
 				<ThemeSwitcher />
