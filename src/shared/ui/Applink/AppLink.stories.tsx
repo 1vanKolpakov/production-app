@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { AppLink, AppLinkTheme } from './AppLink';
+import AppLink, { AppLinkTheme } from './AppLink';
 
 
 const meta: Meta<typeof AppLink> = {

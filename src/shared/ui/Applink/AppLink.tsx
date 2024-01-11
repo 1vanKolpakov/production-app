@@ -13,7 +13,7 @@ interface AppLinkProps extends LinkProps {
 className?: string;
 theme?: AppLinkTheme;
 }
-export const AppLink: FC<AppLinkProps> = (props) => {
+ const AppLink: FC<AppLinkProps> = (props) => {
   const {
     to, 
     className, 
@@ -32,3 +32,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
 };
 
 
+export default AppLink;
