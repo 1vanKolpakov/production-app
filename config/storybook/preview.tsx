@@ -1,8 +1,7 @@
 import type { Preview } from "@storybook/react";
-import { StyleDecorator } from "../../src/shared/config/StyleDecorator/StyleDecorator";
+import React from "react";
 import '../../src/app/styles/index.scss'
-import { ThemeDecorator } from "../../src/shared/config/ThemeDecorator/ThemeDecorator";
-import { Theme } from "../../src/app/providers/ThemeProvider";
+import { BrowserRouter } from "react-router-dom";
 // import 'src/app/styles/index.scss'
 
 const preview: Preview = {
@@ -18,18 +17,17 @@ const preview: Preview = {
       }
     }
   },
+  decorators: [
+    (Story) => (
+      <BrowserRouter >
+        <Story />
+      </BrowserRouter>
+    ),
+  ],
   parameters: {
 
   },
-  // decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 
 export default preview;
-
-// export const globalTypes = {
-//   schema: {
-//     name: "Schema",
-//     desc
-//   }
-// }
