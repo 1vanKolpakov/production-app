@@ -1,26 +1,35 @@
 import type { Preview } from "@storybook/react";
-import { Decorator } from '@storybook/react'
-import { StyleDecorator } from "shared/config/StyleDecorator/StyleDecorator";
-import 'app/styles/index.scss'
-import 'app/styles/variables/globals.scss'
+import { StyleDecorator } from "../../src/shared/config/StyleDecorator/StyleDecorator";
+import '../../src/app/styles/index.scss'
+import { ThemeDecorator } from "../../src/shared/config/ThemeDecorator/ThemeDecorator";
+import { Theme } from "../../src/app/providers/ThemeProvider";
+// import 'src/app/styles/index.scss'
 
 const preview: Preview = {
-  parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
+  globalTypes: {
+    theme: {
+      name: "Scheme",
+      description: "Выбрать темную или светлую тему",
+      defaultValue: "both",
+      toolbar: {
+        icon: "mirror",
+        items: ["light", "dark", "both"],
+        dynamicTitle: true
+      }
+    }
   },
-  // decorators: [
-  //   (Story) => (
-  //     Story()
-  //   )
-  //   ]
+  parameters: {
+
+  },
+  // decorators: [ThemeDecorator(Theme.DARK)]
 };
 
-// Decorator(StyleDecorator)
 
 export default preview;
+
+// export const globalTypes = {
+//   schema: {
+//     name: "Schema",
+//     desc
+//   }
+// }
