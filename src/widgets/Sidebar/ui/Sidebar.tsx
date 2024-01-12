@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React, { useState } from "react"
 import { classNames } from 'shared/lib/classNames/classnames'
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
