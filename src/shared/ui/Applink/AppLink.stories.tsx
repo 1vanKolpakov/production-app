@@ -8,6 +8,7 @@ const meta: Meta<typeof AppLink> = {
   component: AppLink,
   argTypes: {
     theme: AppLinkTheme
+    
   },
   args: {
     to: '/'
