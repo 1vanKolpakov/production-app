@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 interface NavbarProps {
   className?: string;
 
+  
 }
 
 export function Navbar({className}: NavbarProps) {
