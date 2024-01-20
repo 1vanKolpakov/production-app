@@ -16,7 +16,7 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "sb:build": "storybook build -c ./config/storybook",
     "loki:upd": "loki update --reactUri file:./storybook-static",
-    "test:ui:ci":"loki --requireReference --reactUri file:./storybook-static"
+    "test:ui:ci":"storybook build -c ./config/storybook && loki --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
   "author": "",
@@ -78,18 +78,15 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "preset": "iPhone 7"
-      },
-      "overrides": {
-        "chrome-remote-interface": "0.31.3"
       }
     }
   }
