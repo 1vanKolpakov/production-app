@@ -8,8 +8,9 @@ import { Button, ThemeButton } from "shared/ui/Button";
 
 interface ThemeSwitcherProps {
 	className?: string;
+	themeBtn?: ThemeButton;
 }
-export const ThemeSwitcher = ({className}:ThemeSwitcherProps) => {
+export const ThemeSwitcher = ({className, themeBtn}:ThemeSwitcherProps) => {
 	const { toggleTheme, theme } = useTheme()
 
 	return (
@@ -17,7 +18,7 @@ export const ThemeSwitcher = ({className}:ThemeSwitcherProps) => {
 		<Button 
 		className={classNames(styles.themeSwitcher, {}, [className])} 
 		onClick={toggleTheme}
-		theme={ThemeButton.OUTLINE}
+		theme={themeBtn}
 		>
 			{theme === Theme.DARK ? <DarkTheme /> : <LightTheme />}
 		</Button>

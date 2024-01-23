@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonSize, ThemeButton } from './Button';
 
 
 const meta: Meta<typeof Button> = {
@@ -24,6 +24,13 @@ export const Primary: Story = {
   },
 };
 
+export const PrimaryXL: Story = {
+  args: {
+    children: 'Text',
+    size: ButtonSize.XL
+  },
+};
+
 export const Secondary: Story = {
   args: {
     children: 'Text',
@@ -31,10 +38,44 @@ export const Secondary: Story = {
   },
 };
 
+export const SecondaryL: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.CLEAR,
+    size: ButtonSize.L
+  },
+};
+
 export const Outlined: Story = {
   args: {
     children: 'Text',
     theme: ThemeButton.OUTLINE
+  },
+};
+
+export const Square: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND,
+    square: true
+  },
+};
+
+export const SquareL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: ButtonSize.L
+  },
+};
+
+export const SquareXL: Story = {
+  args: {
+    children: '>',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: ButtonSize.XL
   },
 };
 
@@ -49,7 +90,7 @@ function withColor(Story: any, context: any) {
       style={{
         // display: 'flex',
         // justifyContent:'center',
-        padding:'2rem 0 2rem'
+        padding:'2rem 2rem'
       }}
       />
     )
