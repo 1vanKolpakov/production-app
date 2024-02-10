@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { classNames } from "shared/lib/classNames/classnames";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import styles from "./Sidebar.module.scss";
@@ -22,6 +22,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
+  
+  
   return (
     <div
       data-testid="sidebar"
