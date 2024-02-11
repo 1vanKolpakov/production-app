@@ -1,7 +1,5 @@
 import { screen,fireEvent } from '@testing-library/react'
 import { componentRender } from 'shared/config/tests/renderWithRouter/renderWithRouter';
-import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTranslation';
-import { Button, ThemeButton } from 'shared/ui/Button'
 import { Sidebar } from './Sidebar';
 
 describe('classNames', () => {
