@@ -8,6 +8,7 @@ import styles from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal';
 import { Button, ThemeButton } from 'shared/ui/Button';
+import { LoginModal } from 'features/AuthByUsername';
 
 interface NavbarProps {
   className?: string;
@@ -21,22 +22,27 @@ export function Navbar({className}: NavbarProps) {
 
   const [isAuthModal, setIsAuthModal] = useState(false)
 
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal(prev => !prev)
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false)
+  }, [])
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true)
   }, [])
 
   
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
       <div className={styles.links}>
-        <Button theme={ThemeButton.CLEAR} onClick={onToggleModal}>
+        <Button theme={ThemeButton.CLEAR} onClick={onShowModal}>
         {t('Войти')}
         </Button>
         
       </div>
-      <Modal isOpen={isAuthModal} onClose={onToggleModal}>
-          <p>Внутри useEffect всегда можно вернуть функцию очистки, которая используется для удаления нежелательного поведения. Функция очистки вызывается не только перед размонтированием компонента, но и перед выполнением следующего эффекта, прочтите для деталей (на английском).</p>
-        </Modal>
+      <LoginModal
+      isOpen={isAuthModal}
+      onClose={onCloseModal}
+      />
     </div>
   )
 }

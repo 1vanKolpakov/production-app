@@ -8,8 +8,9 @@ interface PortalProps {
 	element?: HTMLElement;
 }
 export const Portal = ({children,element}:PortalProps) => {
+	const find = document.getElementById('root')
 
-	return createPortal(children, element = document.body)
+	return createPortal(children, element = find)
 };
 
 
