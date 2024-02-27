@@ -29,6 +29,7 @@ export const Button: FC<ButtonProps> = (props) => {
 		[styles.square]: square,
 		[styles[size]]: true
 	}
+	
 	return (
 		<button className={classNames(styles.Button, mode, [className ])}
 		{...otherProps}
