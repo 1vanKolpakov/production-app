@@ -9,7 +9,7 @@ className?: string;
 }
 export const PageError = ({className}:PageErrorProps) => {
 	const { t } = useTranslation()
-	const reloadPage=() => {
+	const reloadPage = () => {
 		location.reload()
 	}
 	return (
