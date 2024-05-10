@@ -9,5 +9,7 @@
   "Произошла непредвиденная ошибка": "Something wrong happens",
   "Обновить страницу": "Reload Page",
   "Короткий язык": "en",
-  "Войти": "Login"
+  "Войти": "Login",
+  "Форма авторизации": "Authorization Form",
+  "Вы ввели неверный логин или пароль": "You type incorrect credentials"
 }

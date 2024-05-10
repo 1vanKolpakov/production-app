@@ -53,6 +53,14 @@ export const Outlined: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    children: 'Text',
+    theme: ThemeButton.OUTLINE,
+    disabled: true
+  },
+};
+
 export const Square: Story = {
   args: {
     children: '>',
