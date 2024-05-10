@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Navbar } from './Navbar';
+import { Text, TextTheme } from './Text';
 
 
-const meta: Meta<typeof Navbar> = {
-  title: 'widgets/Navbar',
-  component: Navbar,
+const meta: Meta<typeof Text> = {
+  title: 'shared/Text',
+  component: Text,
   argTypes: {
   },
   decorators: [withColor]
@@ -15,17 +15,35 @@ export default meta;
 
 
 
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof Text>;
 
 export const Light: Story = {
   args: {
-    // children: 'Text'
+    title: 'bla title',
+    text: 'bla text'
   },
 };
 
-function withReduxStore(Story: any, store: any) {
-  
-}
+export const onlyTitle: Story = {
+  args: {
+    title: 'bla title',
+  },
+};
+
+export const onlyText: Story = {
+  args: {
+    text: 'bla text'
+  },
+};
+
+export const Error: Story = {
+  args: {
+    text: 'bla text',
+    title: 'Error title',
+    theme: TextTheme.ERROR
+  },
+};
+
 
 function withColor(Story: any, context: any) {
   let {theme}  = context.globals;
@@ -34,8 +52,9 @@ function withColor(Story: any, context: any) {
       <div
       {...props}
       style={{
-        // display: 'flex',
-        // justifyContent:'center',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
         padding:'2rem 0 2rem'
       }}
       />

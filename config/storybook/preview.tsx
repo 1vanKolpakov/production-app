@@ -2,7 +2,8 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 import '../../src/app/styles/index.scss'
 import { BrowserRouter } from "react-router-dom";
-// import 'src/app/styles/index.scss'
+import { Provider } from "react-redux";
+import StoreProvider from '../../src/app/providers/StoreProvider/ui/StoreProvider'
 
 const preview: Preview = {
   globalTypes: {
@@ -19,10 +20,16 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
+      
       <BrowserRouter >
         <Story />
       </BrowserRouter>
     ),
+    Story => (
+      <StoreProvider >
+        <Story />
+      </StoreProvider>
+    )
   ],
   parameters: {
 

@@ -1,4 +1,3 @@
-import { Counter } from 'entities/Counter';
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input';
@@ -20,7 +19,6 @@ export default function MainPage() {
       onChange={onChange}
       value={value}
       />
-      <Counter />
     </div>
   )
 }
