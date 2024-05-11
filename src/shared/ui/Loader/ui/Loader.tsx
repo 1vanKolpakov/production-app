@@ -7,7 +7,8 @@ interface LoaderProps {
 }
 export const Loader = ({ className }: LoaderProps) => {
   return (
-    <div className={styles.lds_grid}>
+    // classNames(styles.lds_grid, {}, [className])
+    <div className={classNames(styles.lds_grid, {}, [className])}>
       <div></div>
       <div></div>
       <div></div>

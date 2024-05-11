@@ -1,9 +1,13 @@
-import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
+import { ReduxStoreWithManager } from 'app/providers/StoreProvider/config/StateSchema';
+import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
-import React, { memo, useCallback } from 'react'
+import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import React, { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
@@ -14,11 +18,25 @@ interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = memo(({className} : LoginFormProps) => {
+const LoginForm = memo(({className} : LoginFormProps) => {
   const dispatch = useDispatch()
-  const loginForm = useSelector(getLoginState)
+  const store = useStore() as ReduxStoreWithManager;
+  const username = useSelector(getLoginUsername)
+  const password = useSelector(getLoginPassword)
+  const isLoading = useSelector(getLoginIsLoading)
+  const error = useSelector(getLoginError)
 
-  const {username, password, error, isLoading} = loginForm
+  useEffect(() => {
+    store.reducerManager.add('loginForm', loginReducer)
+  
+    return () => {
+      store.reducerManager.remove('loginForm')
+      dispatch({type: '@destroy login modal'})
+    }
+  }, [])
+  
+
+  // const {username, password, error, isLoading} = loginForm
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value))
@@ -58,3 +76,5 @@ export const LoginForm = memo(({className} : LoginFormProps) => {
     </div>
   )
 })
+
+export default LoginForm
