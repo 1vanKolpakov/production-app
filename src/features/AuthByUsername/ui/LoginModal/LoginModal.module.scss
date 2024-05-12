@@ -1,3 +1,10 @@
 .LoginModal {
   
   }
+
+.modalLoader{
+  background: rgb(3, 3, 81);
+  &>* {
+    background: blue !important
+  }
+}
